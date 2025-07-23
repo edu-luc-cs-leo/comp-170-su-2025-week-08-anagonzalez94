@@ -1,0 +1,2 @@
+# COMP 170 Week 07 Reflection
+For Week 07, my code is essentially the same as the posted solutions. The biggest improvement I can make is including more comments, as the provided code includes more context about the subclasses and what each individual variable means. I did include my own tests for the code that I wrote.
