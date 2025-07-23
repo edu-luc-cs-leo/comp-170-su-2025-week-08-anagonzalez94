@@ -25,12 +25,18 @@ class Birthday:
             self.__day = 1
     # end basic constructor
 
+    # Mutator for month
+    def set_month(self, month):
+        if 1 <= month <= 12:
+            self.__month = month
+
     def set_day(self, day):
         """Mutator for day. It only changes the day value if the
         passed argument is within a valid range for the given month."""
         if day > 0 and day <= Birthday.days_in_month[self.__month-1]:
             self.__day = day
     # end set_day
+
 
     # Accessor for __month
     def get_month(self):
@@ -60,6 +66,24 @@ class Birthday:
     def __str__(self):
         """String representation for the object"""
         return f"[ {self.get_month()}/{self.get_day()} ]"
+    
+    def days_until_bday(self):
+        # Get the current date
+        today = datetime.today()
+        # Extract the month and day values from above date
+        today_month = today.month
+        today_day = today.day
+        # Find the day number out of 365 of both today and given birthday
+        today_num = self.day_in_year(today_month, today_day)
+        bday_num = self.day_in_year(self.get_month(), self.get_day())
+        # Depending on relative positions in the year, find the difference
+        if bday_num > today_num:
+            result = bday_num - today_num
+        else:
+            result = 365 - (bday_num - today_num)
+        return result
+
+
     
 
 demo = Birthday(6,29)

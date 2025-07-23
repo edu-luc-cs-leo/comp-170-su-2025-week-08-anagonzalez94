@@ -39,3 +39,14 @@ class Person:
     def __str__(self):
         """String representation for the object"""
         return f"[ {self.first_name} {self.last_name}]"
+    
+    def say_birthday(self):
+        # List of the name of every month for our string
+        months = ["January", "February", "March", "April", "May", "June", "July", 
+                  "August", "September", "October", "November", "December"]
+        day = self.birthday.get_day()
+        # Select proper name of month using above list, accounting for start position
+        # of 0.
+        month_ind = self.birthday.get_month() - 1
+        month_str = months[month_ind]
+        return f"{day} of {month_str}"
